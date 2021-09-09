@@ -69,5 +69,13 @@ class RestaurantTest {
         Totalordervalue items = restaurant.Listoforder_Items(useritemselected1,useritemselected1);
     }
 
+    @Test
+    public void return_the_total_order_value_from_the_menu() throws itemNotFoundException {
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        Item var = restaurant.getItemPrice("Sweet corn soup");
+        assertEquals(119,var.getItemPrice());
+    }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
