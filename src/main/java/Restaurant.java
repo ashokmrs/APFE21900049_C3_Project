@@ -72,4 +72,12 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+    
+    public Item getItemPrice(String itemName) throws itemNotFoundException {
+        Item item_found = findItemByName(itemName);
+        if (item_found == null)
+            throw new itemNotFoundException(itemName);
+        else
+            return item_found;
+    }
 }
